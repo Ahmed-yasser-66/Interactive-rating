@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root {
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --Light-Grey: hsl(217, 12%, 63%);
+  --Medium-Grey: hsl(216, 12%, 54%);
+  --Dark-Grey: rgba(113, 113, 113, 0.3);
+  --Dark-blue: hsl(213, 19%, 18%);
+  --Very-Dark-blue: hsl(216, 12%, 8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Overpass;
+  background-color: var(--Very-Dark-blue);
+  color: var(--white);
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.rating-container {
+  background-color: var(--Dark-blue);
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  padding: 1.5em;
+  border-radius: 32px;
+}
+
+.star {
+  background-color: var(--Dark-Grey);
+  width: 40px;
+  padding: 0.7em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  margin: 1.7em 0;
+}
+
+.content h1 {
+  margin: 0 0 0.3em 0;
+}
+
+.content p {
+  margin: 0;
+  color: var(--Light-Grey);
+  line-height: 1.5;
+}
+
+.ratings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratings div {
+  background-color: var(--Dark-Grey);
+  color: var(--Light-Grey);
+  font-weight: 700;
+  width: 40px;
+  height: 40px;
+  padding: 0.5em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.7em;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in;
+}
+
+.ratings div:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.ratings div.active {
+  background-color: var(--Light-Grey);
+  color: var(--white);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.7em 0;
+  border-radius: 32px;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--white);
+  background-color: var(--orange);
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in;
+}
+
+.submit-btn:hover {
+  background-color: var(--white);
+  color: var(--orange);
+}
+
+.thanking-container {
+  background-color: var(--Dark-blue);
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  padding: 1.5em;
+  border-radius: 32px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.thanking-container img {
+  margin-bottom: 30px;
+}
+
+.thanking-container .rating-result {
+  background-color: var(--Dark-Grey);
+  color: var(--orange);
+  padding: 7px 10px;
+  border-radius: 16px;
+}
+
+.thanking-content {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.thanking-content h2 {
+  margin: 0;
+}
+
+.thanking-content p {
+  color: var(--Light-Grey);
+  line-height: 1.5;
+}
+
+.loader {
+  opacity: 0;
+  display: flex;
+  transition: opacity 0.3s ease-in;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.loader.show {
+  opacity: 1;
+}
+
+.loader .circle {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  animation: bounce 0.5s ease-in infinite;
+}
+
+.loader .circle:nth-last-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.loader .circle:nth-last-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
